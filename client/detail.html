@@ -1,0 +1,24 @@
+<template name="detail">
+    <div class="container">
+        {{#with data}} <!--하나씩 나올 수 있음-->
+<!--{{data}}-->
+        <div class="panel panel-default" id=watch-movie>
+            <div class="panel-heading">제목 : {{제목}} 
+            
+            조회수 : {{조회수}}
+            </div>
+            <div class="panel-body">
+               {{내용}}
+                <!--  //data.내용이 됨 !-->
+                </div>
+            </div>
+        {{/with}}
+            <button class="pull-right btn btn-default"><a href="/wagle">
+                뒤로
+                </a>
+            </button>
+        </div>
+
+
+
+        </template>

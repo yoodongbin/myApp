@@ -1,0 +1,132 @@
+<template name="wagle">
+<!--$('.carousel').carousel(pause) 이렇게 하면 마우스에 올릴 땐 이미지 안넘어감-->
+<!--    <h1>와글와글</h1>-->
+
+    <!-- Button trigger modal -->
+    <h1>이벤트&#8226;공지사항&nbsp;<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-div">
+        작성
+    </button></h1>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-div" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">게시판 글 작성</h4>
+                </div>
+                <div class="modal-body">
+                    제목:
+                    <input type="text" name="title">
+                    <hr>
+                    글번호:
+                    <input type="text" name="num">
+                    <hr>
+                    조회수:
+                    <input type="text" name="count">
+                    <hr>
+                    내용:
+                    <input type="text" name="content">
+                    <input name="hidden-id" class="hidden">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" name="submit">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!--each를 시작할 땐 #, 끝낼 땐 /-->
+            {{#each list}}
+<!--
+            
+            //이벤트가 있을 때 this라는 객체가 이 list를 받아와서 실행한다,^^
+            //근데우린this를 빼고한다... this는 심오하다 ㅎㅎㅎㅎ
+-->
+            <tr>
+
+                <td>{{글번호}}</td>
+                <td><a href="{{pathFor 'detail' _id=_id}}">{{제목}}</a></td>
+                <td>{{조회수}}</td>
+                <td><a href="#" name="updateBoard">수정</a></td>
+                <td><a href="#" name="deleteBoard" id="{{_id}}">삭제</a></td>
+
+            </tr>
+            {{/each}}
+            <!--
+<tr>
+
+<td>1</td>
+<td><a href="/detail">영화관 관람 안내</a></td>
+<td>556</td>
+
+</tr>
+
+<tr>
+<td>2</td>
+<td><a href="/detail">영화관람권 교환 안내</a></td>
+<td>491</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td><a href="/detail">극장내 식음료 반입 안내</a></td>
+<td>357</td>
+</tr>
+-->
+        </tbody>
+
+    </table>
+    
+    <h3><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;시사회 알림</h3>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="img/shark.jpg">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/ola.jpg">
+      <div class="carousel-caption">
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/fanta.jpg">
+      <div class="carousel-caption">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</template>
